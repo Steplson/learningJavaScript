@@ -1,0 +1,4 @@
+function functionWithArgs(parm1, parm2){
+  console.log(parm1 + parm2);
+}
+functionWithArgs(5, 2);
