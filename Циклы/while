@@ -1,0 +1,4 @@
+while (condition) {
+ console.log("Делаем что-то");
+ i++;
+}

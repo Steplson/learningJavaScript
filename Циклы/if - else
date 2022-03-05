@@ -1,0 +1,9 @@
+if (condition1) {
+ console.log("Сделай это, если условие 1 истинно");
+} else if (condition2) {
+ console.log("Сделай это, если условие 2 истинно");
+} else if (condition3) {
+ console.log("Сделай это, если условие 3 истинно");
+} else {
+ console.log("Иначе сделай это");
+}

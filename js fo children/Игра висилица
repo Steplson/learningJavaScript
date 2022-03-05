@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charser="UTF-8">
+<title>Висилица</title>
+</head>
+
+<body>
+<h1>Висилица</h1>
+<p>Это моя первая игра!</p>
+<script>
+
+var words = [ "программа", "макака", "прекрасный", "оладушек", "вареник", "бэйгл", "матрас", "арифметика", "жульен" ];    //хранилище слов
+// Выбираем случайное слово
+ var word = words[Math.floor(Math.random() * words.length)];
+ // Создаем итоговый массив
+ var answerArray = [];
+ for (var i = 0; i < word.length; i++) {
+ answerArray[i] = "_";
+ }
+ var remainingLetters = word.length;
+ var x = 10;
+ var proverka = remainingLetters;
+
+
+                                                                   // Игровой цикл
+ while (remainingLetters > 0 && x > 0) {
+ // Показываем состояние игры
+ alert(answerArray.join(" "));
+
+ // Запрашиваем вариант ответа
+ var guess = prompt("Угадайте букву, или нажмите Отмена для выхода из игры. Удгадываемое слово   " +
+ answerArray.join(" "));
+ if (guess === null) {
+ // Выходим из игрового цикла
+ break;
+ } else guess = guess.toLowerCase(); if (guess.length !== 1) {
+ alert("Пожалуйста, введите одиночную букву.");
+ } else {
+ // Обновляем состояние игры                                    М А К А К А    6 -- 4        Ж О П А   4 -- 3
+ for (var j = 0; j < word.length; j++) {
+ if (word[j] === guess && answerArray[j] !== word[j]) {
+ answerArray[j] = guess;
+ remainingLetters--;
+ }
+ }
+ if (remainingLetters == proverka) {
+ x--;
+alert("Осталось " + x + " попыток.")
+ } else {
+ proverka = remainingLetters
+ }
+
+ }
+ // Конец игрового цикла
+ }
+ // Отображаем ответ и поздравляем игрока
+ if (x > 0) {
+ alert("Поздравляем, вы выиграли! Отгадав слово " + word + "  Оставшиеся жизни - " + x);
+ } else {
+ alert(answerArray.join(" "));
+ alert("Вы проиграли. Было загадано слово " + word);
+ }
+
+
+
+
+
+</script>
+</body>
+</html>
