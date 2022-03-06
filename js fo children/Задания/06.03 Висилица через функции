@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charser="UTF-8">
+<title>Висилица</title>
+</head>
+
+<body>
+<h1>Висилица</h1>
+<p>Это моя первая игра!</p>
+<script>
+
+// Создайте здесь свои функции
+// word: загаданное слово
+var word = pickWord();
+// answerArray: итоговый массив
+var answerArray = setupAnswerArray(word);
+// remainingLetters: сколько букв осталось угадать
+var remainingLetters = word.length;
+while (remainingLetters > 0) {
+ showPlayerProgress(answerArray);
+ // guess: ответ игрока
+ var guess = getGuess();
+ if (guess === null) {
+ break;
+ } else if (guess.length !== 1) {
+ alert("Пожалуйста, введите одиночную букву.");
+ } else {
+ // correctGuesses: количество открытых букв
+ var correctGuesses = updateGameState(guess, word,
+answerArray);
+ remainingLetters -= correctGuesses;
+ }
+}
+showAnswerAndCongratulatePlayer(answerArray);
+
+
+</script>
+</body>
+</html>
